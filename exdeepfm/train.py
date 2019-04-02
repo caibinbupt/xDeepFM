@@ -220,7 +220,7 @@ def train(hparams, scope=None, target_session=""):
     gpuconfig.gpu_options.allow_growth = True
     tf.set_random_seed(1234)
     train_sess = tf.Session(target=target_session, graph=train_model.graph, config=gpuconfig)
-
+    
     train_sess.run(train_model.model.init_op)
     # load model from checkpoint
     if not hparams.load_model_name is None:
